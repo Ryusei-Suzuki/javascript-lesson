@@ -7,18 +7,21 @@ console.log('私のニックネームは' + nickname + 'です。年齢は' + ag
 /*---Q2---*/
 console.log('Q2');
 let languages = ['JavaScript', 'PHP', 'Ruby', 'Python', 'Go'];
-let languagesText = `私の好きな言語は${languages[0]}です。次は${languages[3]}を勉強してみたいです。\n\n`;
+let languagesText = `私の好きな言語は${languages[0]}です。
+次は${languages[3]}を勉強してみたいです。\n\n`;
+//PHPにもあるよ...
 console.log(languagesText);
 
 /*---Q3---*/
 console.log('Q3');
 let user = {
-  name: 'John',
+  name: 'John',//プロパティ
   age: 26,
   bloodType: 'A',
   favorite: 'card',
 };
 console.log(user.age);
+
 console.log('\n');
 
 /*---Q4---*/
@@ -46,8 +49,8 @@ console.log(playerList[1].favorites[1] + '\n\n');
 
 /*---Q5---*/
 console.log('Q5');
-let ageave = (playerList[0].age + playerList[1].age + playerList[2].age) / playerList.length;
-console.log(ageave);
+let ageAve = (playerList[0].age + playerList[1].age + playerList[2].age) / playerList.length;//lengthプロパティ
+console.log(ageAve);
 console.log('(' + playerList[0].age + '+' + playerList[1].age + '+' + playerList[2].age + ')' + '/' + playerList.length + '\n\n');
 
 /*---Q6---*/
@@ -57,23 +60,24 @@ function sayHello(){
 }
 sayHello();
 
-function sayWorld(say){
-  say();
-}
-
-sayWorld(function(){
-  console.log('World\n\n');
-});
+//問題の内容となってないので作り直しました。
+//変数と定数の違い
+let sayWorld = function(){
+  return 'World\n\n';
+};
+console.log(sayWorld());
 
 /*---Q7---*/
 console.log('Q7');
 user.birthday = '2000-09-27';
+
 user.sayHello = function(){
   console.log('Hello!\n\n');
 }
 
 console.log(user.birthday);
 user.sayHello();
+console.log(user);
 
 /*---Q8---*/
 console.log('Q8');
@@ -119,10 +123,11 @@ console.log(' ' + xBasic + ' を' + ' ' + yBasic + ' で割った余りは' + ' 
 /*---Q10---*/
 console.log('Q10');
 console.log('app.js内に記載\n\n\n');
-// function foo() {
-//   let x = 1;
-// }
-// console.log(x);
+function foo() {
+  let x = 1;
+  console.log(x);
+}
+foo();
 //変数xは関数fooの中で宣言されている為、変数xの"スコープ"は関数fooの中のみとなっている事から、
 //コンソールで呼び出そうとした際、変数xが"参照"できない状態となっている。
 
@@ -131,17 +136,23 @@ console.log('-------------------------------------------------------')
 /*---Q1---*/
 console.log('～Section6応用問題～\n\nQ1');
 
-let randomFloor = Math.floor(Math.random() * 10);
+let randomFloor = Math.floor(Math.random() * 10);//組み込み
 console.log(randomFloor);
 console.log('\n');
 
-/*---Q2---*/
-console.log('Q2');
-window.setTimeout(say, 3000);
-function say(){
-  console.log('Hello World!\n\n');
-}
 
+console.log('\n');
+/*---Q3---*/
+console.log('Q3');
+let num = -1;
+console.log('num = ' + num);
+if(num > 0){
+  console.log('num is greater than 0');
+} else if(num < 0){
+  console.log('num is less than 0');
+} else {
+  console.log('num is 0');
+}
 
 /*---Q4---*/
 console.log('Q4');
@@ -157,27 +168,21 @@ console.log(numbers);
 console.log('Q5');
 let mixed = [4, '2', 5, '8', '9', 0, 1];
 for (i = 0; i < mixed.length; i++){
-  if(typeof mixed[i] === "number" && mixed[i] % 2 === 0){
-     console.log('even');
-   } else if(typeof mixed[i] === "number" && mixed[i] % 2 !== 0){
-     console.log('odd');
+  if(typeof mixed[i] !== "number"){ //typeof：演算子
+    console.log('not number\n\n');
+   } else if(mixed[i] % 2 === 0){ //条件まとめられる理由...条件に書く内容が簡略化される、重複している処理がある場合、その分やらなくていい処理が増えてしまう。
+    console.log('even\n\n');
    } else {
-     console.log('not number');
+     console.log('odd\n\n');
   }
 }
 
 
-console.log('\n');
-/*---Q3---*/
-console.log('Q3');
-let num = -1;
-console.log('num = ' + num);
-if(num > 0){
-  console.log('num is greater than 0');
-} else if(num < 0){
-  console.log('num is less than 0');
-} else {
-  console.log('num is 0');
+/*---Q2---*/
+console.log('Q2');
+window.setTimeout(say, 3000);//window使う理由
+function say(){
+  console.log('Hello World!\n\n');
 }
 
 
